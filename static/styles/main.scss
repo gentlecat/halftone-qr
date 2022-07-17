@@ -1,0 +1,30 @@
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+body {
+
+  header {
+    margin: {
+      top: 18px;
+      bottom: 40px;
+    }
+  }
+
+  textarea {
+    resize: none;
+  }
+
+  canvas {
+    width: 160px;
+    height: 160px;
+  }
+
+  canvas#output {
+    width: 488px;
+    height: 488px;
+  }
+
+  #output {
+    border-color: $primary;
+  }
+
+}

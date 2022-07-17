@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+
+  <title>Halftone QR Code Generator</title>
+
+  <link rel="stylesheet" href="/static/styles/main.css" />
+
+  <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+  <script src="/static/scripts/qr.js"></script>
+  <script src="/static/scripts/main.js"></script>
+</head>
+
+<body>
+
+  <div class="container content px-1">
+
+    <header>
+      <h1>Halftone QR Code Generator</h1>
+    </header>
+
+    <form>
+      <div class="row">
+
+        <div class="col-md">
+          <div class="mb-3">
+            <label for="input" class="form-label"><strong>Data</strong></label>
+            <textarea class="form-control" placeholder="Your data here." id="input" style="height: 210px"></textarea>
+          </div>
+        </div>
+
+        <div class="col-md">
+          <div class="mb-3">
+            <label for="inputImage" class="form-label"><strong>Image</strong></label>
+            <input id="inputImage" class="form-control" type="file" accept="image/*" onchange="handleUpload(this)" />
+          </div>
+
+          <div class="mb-3">
+            <div class="form-floating">
+              <select class="form-select" id="error_level">
+                <option value="L">Low (7%)</option>
+                <option value="M">Medium (15%)</option>
+                <option value="Q">Quartile (25%)</option>
+                <option value="H" selected>High (30%)</option>
+              </select>
+              <label for="error_level">Redundancy (error correction level)</label>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="form-floating">
+              <select class="form-select" id="size">
+                <option value="0">Auto</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6" selected>6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+              <label for="size">Image size</label>
+              <div class="form-text">
+                6 gives the largest blank square area
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </form>
+
+    <hr class="mb-4" />
+
+    <div class="mb-3">
+      <canvas id="imageColour" class="img-thumbnail"></canvas>
+      <canvas id="imagePixel" class="img-thumbnail"></canvas>
+      <canvas id="imageThreshold" class="img-thumbnail"></canvas>
+    </div>
+
+    <div>
+      <a id="download" href="about:blank" download="qr_code.png" target="_blank" title="Click to download">
+        <canvas id="output" class="img-thumbnail"></canvas></a>
+    </div>
+
+    <hr class="mb-5" />
+
+    <footer class="mb-5">
+      Based on
+      <ul>
+        <li>
+          <a
+            href="http://vecg.cs.ucl.ac.uk/Projects/SmartGeometry/halftone_QR/halftoneQR_sigga13.html">http://vecg.cs.ucl.ac.uk/Projects/SmartGeometry/halftone_QR/halftoneQR_sigga13.html</a>
+        </li>
+        <li>
+          <a href="https://jsfiddle.net/lachlan/r8qWV/">https://jsfiddle.net/lachlan/r8qWV/</a>
+        </li>
+      </ul>
+
+    </footer>
+
+  </div>
+
+</body>
+
+</html>
